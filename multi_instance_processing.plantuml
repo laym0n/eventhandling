@@ -1,39 +1,41 @@
-@startuml one_instance_processing
+@startuml multi_instance_processing
 
 participant app_scheduler
-participant shedlock
 participant event_service
 participant event_handler
 database db
 
-== ShedLock Блокировка ==
-
-app_scheduler -> shedlock : попытка получить блокировку
-activate app_scheduler
-activate shedlock
-
-shedlock --> app_scheduler : блокировка получена
-deactivate shedlock
+== Поиск событий с их блокировкой ==
 
 app_scheduler -> event_service : начать обработку
+activate app_scheduler
 activate event_service
 
 group transaction
-    event_service -> db : поиск событий
+    event_service -> db : поиск событий с блокировкой
     activate db
-    db --> event_service : события
+    db --> event_service : события с блокировкой
     deactivate db
 end
 
-== Синхронная обработка ==
 loop для каждого события
     event_service -> event_handler : событие для обработки
     activate event_handler
+end
 
-    event_handler -> event_handler : бизнес-логика обработки
+event_service --> app_scheduler : завершение обработки
+deactivate event_service
 
+deactivate app_scheduler
+
+== Асинхронная обработка ==
+
+event_handler -> event_handler : бизнес-логика обработки
+
+loop для каждого результата обработки события
     event_handler --> event_service : результат исполнения
     deactivate event_handler
+    activate event_service
 
     group transaction
         alt успешно обработано
@@ -50,14 +52,6 @@ loop для каждого события
     end
 end
 
-event_service --> app_scheduler : завершение обработки
 deactivate event_service
-
-app_scheduler -> shedlock : освободить блокировку
-activate shedlock
-shedlock --> app_scheduler : блокировка освобождена
-deactivate shedlock
-
-deactivate app_scheduler
 
 @enduml
