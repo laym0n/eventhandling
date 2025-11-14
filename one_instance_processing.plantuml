@@ -1,0 +1,51 @@
+@startuml one_instance_processing
+
+participant app_scheduler
+participant event_service
+participant event_handler
+database db
+
+activate app_scheduler
+app_scheduler -> event_service : обработать события
+activate event_service
+
+group transaction
+    event_service -> db : поиск событий
+    activate db
+    db --> event_service : события
+    deactivate db
+end
+
+loop для каждого события
+    event_service -> event_handler : событие для обработки
+    activate event_handler
+end
+
+event_service --> app_scheduler : завершение обработки
+deactivate event_service
+deactivate app_scheduler
+event_handler -> event_handler : бизнес-логика обработки
+
+loop для каждого результата обработки события
+    event_handler --> event_service : результат исполнения
+    deactivate event_handler
+    activate event_service
+
+    group transaction
+        alt успешно обработано
+            event_service -> db : обработка успеха
+            activate db
+            db --> event_service
+            deactivate db
+        else неуспешно обработано
+            event_service -> db : увеличение счетчика попыток
+            activate db
+            db --> event_service
+            deactivate db
+        end
+    end
+end
+
+deactivate event_service
+
+@enduml
