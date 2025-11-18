@@ -104,12 +104,58 @@
 - Синхронная обработка
 - Сохранение в той же таблице
 
+![Итоговая обработка](./out/result_processing/processing.png)
+
 ## Логическая модель event
-|Поле       |Тип                     |Описание|
-|-----------|------------------------|--------|
-|id         |UUID, PK                ||
-|create_date|TIMESTAMP WITH TIME ZONE||
-|name       |VARCHAR(100), NOT NULL  |название события|
-|payload    |TEXT                    |payload для обработки|
-|retry      |SMALLINT, NULLABLE      |количество неудачных попыток обработки|
-|max_retry  |SMALLINT, NULLABLE      |максимальное количество неудачных попыток обработки|
+|Поле       |Тип                               |Описание|
+|-----------|----------------------------------|--------|
+|id         |UUID, PK                          ||
+|create_date|TIMESTAMP WITH TIME ZONE, NOT NULL||
+|name       |VARCHAR(100), NOT NULL            |название события|
+|payload    |TEXT                              |payload для обработки|
+|group_id=start_process   |VARCHAR(100)                      |идентификатор группы в рамках, которого необходимо обрабатывать события последовательно|
+|retry      |SMALLINT, NOT NULL                |количество неудачных попыток обработки|
+|max_retry  |SMALLINT, NOT NULL                |максимальное количество неудачных попыток обработки|
+
+## Обработка
+1. Поиск событий для обработки
+```sql
+SELECT *
+FROM outbox_events
+WHERE retry < max_retry
+ORDER BY create_date
+LIMIT :batch_size;
+```
+
+2. Сгруппировать события по `group_id` и каждую группу отсортировать по `create_date `
+3. Для каждого события:
+    1. Найти обработчик по `name`
+    2. Передать на обработку событие
+    3. Синхронно дождаться завершения обработки события
+    4. Удалить событие по `id`
+4. Если обработчик по `name` не найден
+    1. установить `retry` равным `max_retry`
+    2. Логирование, мониторинг
+5. Если обработка события закончилась ошибкой
+    1. увеличить `retry` на 1
+    2. Логирование, мониторинг (как финальных, так и нет попыток обработки)
+
+## Очистка
+1. Запрос для очистки старых записей
+```sql
+DELETE *
+FROM outbox_events
+WHERE retry >= max_retry and create_date <= :cleanup_before_date
+```
+
+## Обработка b3 события issuings-ai-checks
+1. Отфильтровать b3 сообщение
+2. Сохранить событие c payload `{"triggerId":"triggerId", "applicationId":"applicationId"}`
+
+## Обработка события из таблицы event issuings-ai-checks
+1. Проверка просроченности задачи
+2. Подсчитать количество записей в таблице `issuing_check` с значением поля `work_statusom` равным `NEW`
+3. Если количество >= 2
+    1. Сохранить новое событие c payload `{"triggerId":"triggerId", "applicationId":"applicationId"}`
+    2. Закончить обработку
+4. Обычная обработка
