@@ -113,7 +113,7 @@
 |create_date|TIMESTAMP WITH TIME ZONE, NOT NULL||
 |name       |VARCHAR(100), NOT NULL            |название события|
 |payload    |TEXT                              |payload для обработки|
-|group_id=start_process   |VARCHAR(100)                      |идентификатор группы в рамках, которого необходимо обрабатывать события последовательно|
+|group_id   |VARCHAR(100)                      |идентификатор группы в рамках, которого необходимо обрабатывать события последовательно|
 |retry      |SMALLINT, NOT NULL                |количество неудачных попыток обработки|
 |max_retry  |SMALLINT, NOT NULL                |максимальное количество неудачных попыток обработки|
 
