@@ -1,25 +1,39 @@
 @startuml processing
 
-participant app_scheduler
-participant shedlock
-participant event_service
-participant event_handler
+box "Библиотечка"
+    participant cleanup_scheduler
+    participant event_scheduler
+    participant shedlock
+    participant event_service
+end box
+
+box "Сервис"
+    participant event_handler
+end box
+
 database db
 
 == ShedLock Блокировка ==
 
-app_scheduler -> shedlock : попытка получить блокировку
-activate app_scheduler
+event_scheduler -> shedlock : попытка получить блокировку
+activate event_scheduler
 activate shedlock
 
-shedlock --> app_scheduler : блокировка получена
+shedlock --> event_scheduler : блокировка получена
 deactivate shedlock
 
-app_scheduler -> event_service : начать обработку
+event_scheduler -> event_service : начать обработку
 activate event_service
 
 group transaction
     event_service -> db : поиск событий
+    note left
+        SELECT *
+        FROM events
+        WHERE retry < max_retry
+        ORDER BY create_date
+        LIMIT :batch_size;
+    end note
     activate db
     db --> event_service : события
     deactivate db
@@ -50,15 +64,17 @@ loop для каждого события
     end
 end
 
-event_service --> app_scheduler : завершение обработки
+event_service --> event_scheduler : завершение обработки
 deactivate event_service
 
-app_scheduler -> shedlock : освободить блокировку
+event_scheduler -> shedlock : освободить блокировку
 activate shedlock
-shedlock --> app_scheduler : блокировка освобождена
+shedlock --> event_scheduler : блокировка освобождена
 deactivate shedlock
 
-deactivate app_scheduler
+deactivate event_scheduler
+
+== Очистка записей ==
 
 cleanup_scheduler -> shedlock : попытка получить блокировку
 activate cleanup_scheduler
@@ -68,6 +84,11 @@ shedlock --> cleanup_scheduler : блокировка получена
 deactivate shedlock
 
 cleanup_scheduler -> db : удаление старых записей
+note right
+    DELETE *
+    FROM events
+    WHERE retry >= max_retry and create_date <= :cleanup_before_date
+end note
 activate db
 db --> cleanup_scheduler
 deactivate db

@@ -1,0 +1,28 @@
+@startuml
+hide methods
+
+abstract class Event {
+    id: UUID <<PK>>
+    create_date: TIMESTAMP WITH TIME ZONE <<NOT NULL>>
+    name: VARCHAR(100) <<NOT NULL>>
+    payload: TEXT
+    group_id: VARCHAR(100)
+    retry: SMALLINT <<NOT NULL>>
+    deadline_by: TIMESTAMP WITH TIME ZONE
+    locked_by: TIMESTAMP WITH TIME ZONE
+    prioritet: SMALLINT
+    status: VARCHAR(50)>
+}
+
+class DeadlineEvent {
+    maxAttempts: SMALLINT <<NOT NULL>>
+}
+
+class MaxAttemptsEvent {
+    maxAttempts: SMALLINT
+    deadline_by: TIMESTAMP WITH TIME ZONE <<NOT NULL>>
+}
+
+Event <|-- MaxAttemptsEvent
+Event <|-- DeadlineEvent
+@enduml

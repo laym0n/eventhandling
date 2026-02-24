@@ -1,0 +1,83 @@
+@startuml one_instance_processing_eager_cleanup
+
+box "Библиотечка"
+    participant priority_scheduler
+    participant shedlock
+    participant event_service
+end box
+box "Сервис"
+    participant event_handler
+end box
+database db
+
+== ShedLock Блокировка ==
+
+priority_scheduler -> shedlock : попытка получить блокировку
+activate priority_scheduler
+activate shedlock
+
+shedlock --> priority_scheduler : блокировка получена
+deactivate shedlock
+
+priority_scheduler -> event_service : начать обработку
+activate event_service
+
+group transaction
+    event_service -> db : поиск событий
+    note left
+        SELECT *
+        FROM events
+        WHERE status <> 'IN_PROCESS' 
+        AND priority IS NOT NULL 
+        AND (deadline_by IS NULL OR deadline_by <= now())
+        AND (max_retry IS NULL OR retry < max_retry)
+        ORDER BY priority, create_date
+        LIMIT :batch_size;
+    end note
+    
+    activate db
+    db --> event_service : события
+    deactivate db
+end
+
+== Синхронная обработка ==
+loop для каждого события
+    event_service -> event_handler : событие для обработки
+    activate event_handler
+
+    event_handler -> event_handler : бизнес-логика обработки
+
+    event_handler --> event_service : COMPLETED, FAILED или IN_PROCESS
+    deactivate event_handler
+
+    group transaction
+        alt COMPLETED
+            event_service -> db : удаление записи 
+            activate db
+            db --> event_service
+            deactivate db
+        else FAILED
+            event_service -> db : увеличение event.retry на 1, обновление статуса на FAILED
+            activate db
+            db --> event_service
+            deactivate db
+        else IN_PROCESS
+            event_service -> db : обновление статуса на IN_PROCESS, установка locked_by из средозависимых
+            activate db
+            db --> event_service
+            deactivate db
+        end
+    end
+end
+
+event_service --> priority_scheduler : завершение обработки
+deactivate event_service
+
+priority_scheduler -> shedlock : освободить блокировку
+activate shedlock
+shedlock --> priority_scheduler : блокировка освобождена
+deactivate shedlock
+
+deactivate priority_scheduler
+
+@enduml

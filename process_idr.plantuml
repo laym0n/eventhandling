@@ -1,0 +1,39 @@
+@startuml one_instance_processing_eager_cleanup
+
+participant Sberflow
+participant RequestQueue_Job
+participant event_library as "Библиотека событий"
+participant handler as "GIGACHAT_REQUEST_FLOW\nHANDLER"
+
+activate Sberflow
+Sberflow -> RequestQueue_Job
+deactivate Sberflow
+activate RequestQueue_Job
+
+RequestQueue_Job -> event_library : Сохранение события\n(deadline_by, GIGACHAT_REQUEST_FLOW, prioritet, NEW)
+activate event_library
+event_library -> RequestQueue_Job
+deactivate event_library
+
+RequestQueue_Job --> Sberflow
+deactivate RequestQueue_Job
+event_library -> handler : событие
+
+activate handler
+handler -> event_library : количество событий с code=GIGACHAT_REQUEST_FLOW И status=IN_PROCESS
+activate event_library
+event_library --> handler : COUNT_IN_PROCESS
+deactivate event_library
+
+handler -> handler : Подсчет ${oscm.event-queue.event-code.gigachat-request.flow.concurrent-streams} - COUNT_IN_PROCESS
+
+alt 0
+    handler -> event_library : ошибка исполнения (FAILED - уходит в ретрай через некоторое время) 
+else больше 0
+    handler -> event_library : событие в обработке (IN_PROCESS) 
+    handler -> handler : дальнейшая логика 
+    handler -> event_library : событие обработано (COMPLETED)
+end
+
+
+@enduml
