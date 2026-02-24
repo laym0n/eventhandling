@@ -85,8 +85,7 @@ deactivate shedlock
 
 cleanup_scheduler -> db : удаление старых записей
 note right
-    DELETE *
-    FROM events
+    DELETE FROM events
     WHERE retry >= max_retry and create_date <= :cleanup_before_date
 end note
 activate db

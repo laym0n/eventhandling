@@ -14,11 +14,11 @@ abstract class Event {
     status: VARCHAR(50)>
 }
 
-class DeadlineEvent {
+class MaxAttemptsEvent {
     maxAttempts: SMALLINT <<NOT NULL>>
 }
 
-class MaxAttemptsEvent {
+class DeadlineEvent {
     maxAttempts: SMALLINT
     deadline_by: TIMESTAMP WITH TIME ZONE <<NOT NULL>>
 }

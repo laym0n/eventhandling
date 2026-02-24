@@ -42,8 +42,7 @@ LIMIT :batch_size;
 1. Запрос для очистки старых записей
 
 ```sql
-DELETE *
-FROM events
+DELETE FROM events
 WHERE retry >= max_retry and create_date <= :cleanup_before_date
 ```
 
@@ -80,8 +79,7 @@ WHERE retry >= max_retry and create_date <= :cleanup_before_date
 ## Доработка запроса удаления старых событий в шедулере очистки
 
 ```sql
-DELETE *
-FROM events
+DELETE FROM events
 WHERE (now() >= deadline_by OR retry >= max_retry) and create_date <= :cleanup_before_date
 ```
 
