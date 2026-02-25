@@ -1,0 +1,116 @@
+@startuml sheduler_event_processing
+
+box "Библиотечка"
+    participant priority_scheduler
+    participant shedlock
+    participant event_service
+end box
+database db
+box "Сервис"
+    participant event_handler
+end box
+
+== Поиск событий ==
+
+priority_scheduler -> shedlock : попытка получить блокировку
+activate priority_scheduler
+activate shedlock
+
+shedlock --> priority_scheduler : блокировка получена
+deactivate shedlock
+
+priority_scheduler -> event_service : начать обработку
+activate event_service
+
+group transaction
+    event_service -> db : разблокировать события, у которых истек locked_until
+    note left
+        UPDATE events
+        SET status = 'FAILED', locked_until = NULL,
+        attempt_count = attempt_count + 1
+        WHERE locked_until < now() AND status = 'PROCESSING'
+        AND code = :code;
+    end note
+    activate db
+    db --> event_service
+    deactivate db
+    
+    alt Сконфигурировано ограничение на количество одновременных обработок
+        event_service -> db : поиск событий в обработке
+        note left
+            SELECT count(*)
+            FROM events
+            WHERE status = 'PROCESSING'
+            AND code = :code;
+        end note
+        activate db
+        db --> event_service
+        deactivate db
+
+        alt Достигнут лимит одновременных обработок
+            event_service --> priority_scheduler : завершение обработки
+        end
+    end
+
+    event_service -> db : поиск событий
+    note left
+        ПРИМЕР
+        SELECT *
+        FROM events
+        WHERE status <> 'PROCESSING'
+        AND code = :code
+        AND priority IS NOT NULL 
+        AND (deadline_until IS NULL OR now() <= deadline_until)
+        AND (max_attempts IS NULL OR attempt_count < max_attempts)
+        ORDER BY priority, create_date
+        LIMIT :batch_size;
+    end note
+    
+    activate db
+    db --> event_service : события
+    deactivate db
+
+    loop для каждого обрабатываемого события
+        event_service -> db : обновить статус на PROCCESSING\nустановка locked_until из средозависимых
+        activate db
+        db --> event_service
+        deactivate db
+    end
+end
+
+== Обработка событий ==
+loop для каждого события
+    event_service -> event_handler : событие для обработки
+    activate event_handler
+
+    event_handler -> event_handler : бизнес-логика обработки
+
+    event_handler --> event_service : COMPLETED, FAILED или PROCESSING
+    deactivate event_handler
+
+    group transaction
+        alt COMPLETED
+            event_service -> db : удаление записи 
+            activate db
+            db --> event_service
+            deactivate db
+        else FAILED
+            event_service -> db : увеличение event.attempt_count на 1\nобновление статуса на FAILED
+            activate db
+            db --> event_service
+            deactivate db
+        end
+    end
+end
+
+event_service --> priority_scheduler : завершение обработки
+deactivate event_service
+
+priority_scheduler -> shedlock : освободить блокировку
+activate shedlock
+shedlock --> priority_scheduler : блокировка освобождена
+deactivate shedlock
+
+deactivate priority_scheduler
+
+@enduml

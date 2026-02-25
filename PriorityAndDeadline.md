@@ -72,28 +72,122 @@ WHERE attempt_count >= max_attempts and create_date <= :cleanup_before_date
 | prioritet      | SMALLINT                           | Приоритет события                                                                       |
 | status         | VARCHAR(50)                        | Статусы события (WAIT, PROCESSING, ERROR)                                               |
 
-## Добавление шедулера обработки событий по приоритетам
+## Конфигурация scheduler'ов
 
-![Обработка событий по приоритетам](./out/process_by_priority/one_instance_processing_eager_cleanup.svg)
+```yml
+event-handler:
+  clean-up:
+    enabled:
+    schedule-interval:
+    lock-schedule-at-most-for:
+    record-max-age:
+  pulling:
+    default: # дефолтный шедулер для обработки событий без приоритетов
+      enabled:
+      schedule-interval:
+      lock-schedule-at-most-for:
+      batch-size:
+      event-lock-duration: # Длительность блокирования события для обработки; дефолтное значение + по кодам событий значения (опционально)
+      pool:
+        pool-size:
+        max-pool-size:
+        queue-capacity:
+        keep-alive-seconds:
+        execution-timeout:
+    priority: # дефолтный шедулер для обработки событий c приоритетами
+      enabled:
+      schedule-interval:
+      lock-schedule-at-most-for:
+      batch-size:
+      event-lock-duration: # Длительность блокирования события для обработки; дефолтное значение + по кодам событий значения (опционально)
+      pool:
+        pool-size:
+        max-pool-size:
+        queue-capacity:
+        keep-alive-seconds:
+        execution-timeout:
+    events: # шедулеры для обработки отдельных событий
+      [event_code]:
+        enabled:
+        schedule-interval:
+        lock-schedule-at-most-for:
+        batch-size:
+        max-processing-count: # Максимальное количество одновременно обрабатываемых событий
+        event-lock-duration: # Длительность блокирования события для обработки; дефолтное значение
+        order-by: # PRIORITY | CREATE_DATE
+        pool:
+          pool-size:
+          max-pool-size:
+          queue-capacity:
+          keep-alive-seconds:
+          execution-timeout:
+```
+
+## Запрос поиска событий для обработки по конфигурации шедулера
+
+### Базовый запрос
+
+```sql
+SELECT *
+FROM events
+WHERE status <> 'PROCESSING'
+AND (deadline_until IS NULL OR now() <= deadline_until)
+AND (max_attempts IS NULL OR attempt_count < max_attempts)
+```
+
+### Дефолтные шедулеры или для отдельного события
+
+#### Для отдельного события
+
+```sql
+AND code = :code
+```
+
+#### Дефолтные шедулеры
+
+```sql
+AND code NOT IN (:codes) # codes - коды событий, для которых сформирован отдельный шедулер
+```
+
+### PRIORITY или CREATE_DATE шедулеры
+
+#### PRIORITY шедулер
+
+```sql
+AND priority IS NOT NULL
+ORDER BY priority, create_date
+```
+
+#### CREATE_DATE шедулер
+
+```sql
+AND priority IS NULL
+ORDER BY create_date
+```
+
+### batch-size или max-processing-count шедулеры
+
+#### batch-size шедулер
+
+```sql
+LIMIT :batch_size;
+```
+
+#### max-processing-count шедулер
+
+```sql
+LIMIT :max_processing_count - :processing_count;
+```
+
+## Общая логика обработки событий
+
+![Общая логика обработки событий](./out/sheduler_event_processing/sheduler_event_processing.svg)
 
 ## Доработка запроса удаления старых событий в шедулере очистки
 
 ```sql
 DELETE FROM events
 WHERE (now() >= deadline_until OR attempt_count >= max_attempts) and create_date <= :cleanup_before_date
-```
-
-## Доработка запроса поиска событий без приоритетов
-
-```sql
-SELECT *
-FROM events
-WHERE status <> 'IN_PROCESS'
-AND priority IS NULL
-AND (deadline_until IS NULL OR deadline_until <= now())
-AND (max_attempts IS NULL OR attempt_count < max_attempts)
-ORDER BY create_date
-LIMIT :batch_size;
 ```
 
 ## Логика IDR обработчика
@@ -103,7 +197,7 @@ LIMIT :batch_size;
 ## Задачи
 
 - Обновить ER: добавить (deadline_until, locked_until, prioritet, status) и убрать NOT NULL с max_attempts
-- Добавить новый priority шедулер
+- Обновить логику шедулера обработки событий
+- Добавить конфигурацию шедулеров обработки событий
+- Сконфигурировать два дефолтных шедулера обработки событий
 - Обновить шедулер удаления старых записей
-- Добавить конфигурацию поля locked_until для событий (Опционально)
-- Добавить конфигурацию количества потоков на отдельные обработчики событий (Опционально)

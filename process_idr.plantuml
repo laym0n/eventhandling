@@ -20,20 +20,10 @@ deactivate RequestQueue_Job
 event_library -> handler : событие
 
 activate handler
-handler -> event_library : количество событий с code=GIGACHAT_REQUEST_FLOW И status=PROCESSING
-activate event_library
-event_library --> handler : COUNT_PROCESSING
-deactivate event_library
 
-handler -> handler : Подсчет ${oscm.event-queue.event-code.gigachat-request.flow.concurrent-streams} - COUNT_PROCESSING
-
-alt 0
-    handler -> event_library : ошибка исполнения (FAILED - уходит в ретрай через некоторое время) 
-else больше 0
-    handler -> event_library : событие в обработке (PROCESSING) 
-    handler -> handler : дальнейшая логика 
-    handler -> event_library : событие обработано (COMPLETED)
-end
+handler -> event_library : событие в обработке (PROCESSING) 
+handler -> handler : дальнейшая логика 
+handler -> event_library : событие обработано (COMPLETED)
 
 deactivate handler
 
