@@ -127,15 +127,15 @@
 
 ## Логическая модель event
 
-| Поле        | Тип                                | Описание                                                                                |
-| ----------- | ---------------------------------- | --------------------------------------------------------------------------------------- |
-| id          | UUID, PK                           |                                                                                         |
-| create_date | TIMESTAMP WITH TIME ZONE, NOT NULL |                                                                                         |
-| name        | VARCHAR(100), NOT NULL             | название события                                                                        |
-| payload     | TEXT                               | payload для обработки                                                                   |
-| group_id    | VARCHAR(100)                       | идентификатор группы в рамках, которого необходимо обрабатывать события последовательно |
-| retry       | SMALLINT, NOT NULL                 | количество неудачных попыток обработки                                                  |
-| max_retry   | SMALLINT, NOT NULL                 | максимальное количество неудачных попыток обработки                                     |
+| Поле          | Тип                                | Описание                                                                                |
+| ------------- | ---------------------------------- | --------------------------------------------------------------------------------------- |
+| id            | UUID, PK                           |                                                                                         |
+| create_date   | TIMESTAMP WITH TIME ZONE, NOT NULL |                                                                                         |
+| name          | VARCHAR(100), NOT NULL             | название события                                                                        |
+| payload       | TEXT                               | payload для обработки                                                                   |
+| group_id      | VARCHAR(100)                       | идентификатор группы в рамках, которого необходимо обрабатывать события последовательно |
+| attempt_count | SMALLINT, NOT NULL                 | количество неудачных попыток обработки                                                  |
+| max_attempts  | SMALLINT, NOT NULL                 | максимальное количество неудачных попыток обработки                                     |
 
 ## Обработка
 
@@ -144,7 +144,7 @@
 ```sql
 SELECT *
 FROM outbox_events
-WHERE retry < max_retry
+WHERE attempt_count < max_attempts
 ORDER BY create_date
 LIMIT :batch_size;
 ```
@@ -156,10 +156,10 @@ LIMIT :batch_size;
    3. Синхронно дождаться завершения обработки события
    4. Удалить событие по `id`
 4. Если обработчик по `name` не найден
-   1. установить `retry` равным `max_retry`
+   1. установить `attempt_count` равным `max_attempts`
    2. Логирование, мониторинг
 5. Если обработка события закончилась ошибкой
-   1. увеличить `retry` на 1
+   1. увеличить `attempt_count` на 1
    2. Логирование, мониторинг (как финальных, так и нет попыток обработки)
 
 ## Очистка
@@ -169,7 +169,7 @@ LIMIT :batch_size;
 ```sql
 DELETE *
 FROM outbox_events
-WHERE retry >= max_retry and create_date <= :cleanup_before_date
+WHERE attempt_count >= max_attempts and create_date <= :cleanup_before_date
 ```
 
 ## Обработка b3 события issuings-ai-checks

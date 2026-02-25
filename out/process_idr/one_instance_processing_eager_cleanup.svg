@@ -1,1 +1,177 @@
-<?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="535px" preserveAspectRatio="none" style="width:1708px;height:535px;background:#FFFFFF;" version="1.1" viewBox="0 0 1708 535" width="1708px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="6" style="stroke:#181818;stroke-width:1.0;" width="10" x="34" y="65.2188"/><rect fill="#FFFFFF" height="74.7031" style="stroke:#181818;stroke-width:1.0;" width="10" x="148" y="71.2188"/><rect fill="#FFFFFF" height="14" style="stroke:#181818;stroke-width:1.0;" width="10" x="532" y="117.9219"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="532" y="206.625"/><rect fill="#FFFFFF" height="295.6484" style="stroke:#181818;stroke-width:1.0;" width="10" x="1056" y="176.2734"/><rect fill="none" height="168.5938" style="stroke:#000000;stroke-width:1.5;" width="752" x="451" y="295.3281"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="39" x2="39" y1="55.2188" y2="480.9219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="153" x2="153" y1="55.2188" y2="480.9219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="537" x2="537" y1="55.2188" y2="480.9219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1061" x2="1061" y1="55.2188" y2="480.9219"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="68" x="5" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="12" y="44.1426">Sberflow</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="68" x="5" y="479.9219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="12" y="501.4551">Sberflow</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="140" x="83" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="90" y="44.1426">RequestQueue_Job</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="140" x="83" y="479.9219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="90" y="501.4551">RequestQueue_Job</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="152" x="461" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="468" y="44.1426">&#1041;&#1080;&#1073;&#1083;&#1080;&#1086;&#1090;&#1077;&#1082;&#1072; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1081;</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="152" x="461" y="479.9219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="468" y="501.4551">&#1041;&#1080;&#1073;&#1083;&#1080;&#1086;&#1090;&#1077;&#1082;&#1072; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1081;</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="208" x="957" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="194" x="964" y="26.5332">GIGACHAT_REQUEST_FLOW</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1029" y="44.1426">HANDLER</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="208" x="957" y="479.9219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="194" x="964" y="501.4551">GIGACHAT_REQUEST_FLOW</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1029" y="519.0645">HANDLER</text><rect fill="#FFFFFF" height="6" style="stroke:#181818;stroke-width:1.0;" width="10" x="34" y="65.2188"/><rect fill="#FFFFFF" height="74.7031" style="stroke:#181818;stroke-width:1.0;" width="10" x="148" y="71.2188"/><rect fill="#FFFFFF" height="14" style="stroke:#181818;stroke-width:1.0;" width="10" x="532" y="117.9219"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="532" y="206.625"/><rect fill="#FFFFFF" height="295.6484" style="stroke:#181818;stroke-width:1.0;" width="10" x="1056" y="176.2734"/><polygon fill="#181818" points="136,67.2188,146,71.2188,136,75.2188,140,71.2188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="39" x2="142" y1="71.2188" y2="71.2188"/><polygon fill="#181818" points="520,113.9219,530,117.9219,520,121.9219,524,117.9219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="158" x2="526" y1="117.9219" y2="117.9219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125" x="165" y="96.7139">&#1057;&#1086;&#1093;&#1088;&#1072;&#1085;&#1077;&#1085;&#1080;&#1077; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1103;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="355" x="165" y="113.0654">(deadline_by, GIGACHAT_REQUEST_FLOW, prioritet, NEW)</text><polygon fill="#181818" points="169,127.9219,159,131.9219,169,135.9219,165,131.9219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="163" x2="536" y1="131.9219" y2="131.9219"/><polygon fill="#181818" points="50,141.9219,40,145.9219,50,149.9219,46,145.9219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="44" x2="152" y1="145.9219" y2="145.9219"/><polygon fill="#181818" points="1044,172.2734,1054,176.2734,1044,180.2734,1048,176.2734" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="537" x2="1050" y1="176.2734" y2="176.2734"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="49" x="544" y="171.417">&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1077;</text><polygon fill="#181818" points="553,202.625,543,206.625,553,210.625,549,206.625" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="547" x2="1055" y1="206.625" y2="206.625"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="495" x="559" y="201.7686">&#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1081; &#1089; code=GIGACHAT_REQUEST_FLOW &#1048; status=IN_PROCESS</text><polygon fill="#181818" points="1044,232.9766,1054,236.9766,1044,240.9766,1048,236.9766" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="537" x2="1050" y1="236.9766" y2="236.9766"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="544" y="232.1201">COUNT_IN_PROCESS</text><line style="stroke:#181818;stroke-width:1.0;" x1="1066" x2="1108" y1="267.3281" y2="267.3281"/><line style="stroke:#181818;stroke-width:1.0;" x1="1108" x2="1108" y1="267.3281" y2="280.3281"/><line style="stroke:#181818;stroke-width:1.0;" x1="1067" x2="1108" y1="280.3281" y2="280.3281"/><polygon fill="#181818" points="1077,276.3281,1067,280.3281,1077,284.3281,1073,280.3281" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="628" x="1073" y="262.4717">&#1055;&#1086;&#1076;&#1089;&#1095;&#1077;&#1090; ${oscm.event-queue.event-code.gigachat-request.flow.concurrent-streams} - COUNT_IN_PROCESS</text><path d="M451,295.3281 L512,295.3281 L512,303.6797 L502,313.6797 L451,313.6797 L451,295.3281 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="168.5938" style="stroke:#000000;stroke-width:1.5;" width="752" x="451" y="295.3281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="466" y="309.8232">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="14" x="527" y="308.7471">[0]</text><polygon fill="#181818" points="548,332.0313,538,336.0313,548,340.0313,544,336.0313" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="542" x2="1055" y1="336.0313" y2="336.0313"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="427" x="554" y="331.1748">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072; &#1080;&#1089;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1103; (FAILED - &#1091;&#1093;&#1086;&#1076;&#1080;&#1090; &#1074; &#1088;&#1077;&#1090;&#1088;&#1072;&#1081; &#1095;&#1077;&#1088;&#1077;&#1079; &#1085;&#1077;&#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1077; &#1074;&#1088;&#1077;&#1084;&#1103;)</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="451" x2="1203" y1="345.0313" y2="345.0313"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="60" x="456" y="356.4502">[&#1073;&#1086;&#1083;&#1100;&#1096;&#1077; 0]</text><polygon fill="#181818" points="548,378.2188,538,382.2188,548,386.2188,544,382.2188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="542" x2="1055" y1="382.2188" y2="382.2188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="219" x="554" y="377.3623">&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1077; &#1074; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1077; (IN_PROCESS)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1066" x2="1108" y1="412.5703" y2="412.5703"/><line style="stroke:#181818;stroke-width:1.0;" x1="1108" x2="1108" y1="412.5703" y2="425.5703"/><line style="stroke:#181818;stroke-width:1.0;" x1="1067" x2="1108" y1="425.5703" y2="425.5703"/><polygon fill="#181818" points="1077,421.5703,1067,425.5703,1077,429.5703,1073,425.5703" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="118" x="1073" y="407.7139">&#1076;&#1072;&#1083;&#1100;&#1085;&#1077;&#1081;&#1096;&#1072;&#1103; &#1083;&#1086;&#1075;&#1080;&#1082;&#1072;</text><polygon fill="#181818" points="548,451.9219,538,455.9219,548,459.9219,544,455.9219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="542" x2="1055" y1="455.9219" y2="455.9219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="213" x="554" y="451.0654">&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1077; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1085;&#1086; (COMPLETED)</text><!--SRC=[bLFTQXf15BwVfpX8BnHKUXr8GNIJMAmcQiXDO1dNQRAmsJMpOqeeXMe9BRGWlUjTwHkeZJInpVOLPjwePxOQTrpRj7knx9oTxtm_SwP7kN0TjqTz0QqEuy-zu0Nf9OfDTjvdeJZeipwpdmOTuoUxOBwmFRV3ARy46a96VfGtSYA_upjIGpcJSpa6DP2HdAZtMBYHjncZnIdrknxZCNYtkbigxvNQTjCwEBHQRNkdrZWwzlTAzKhDQcO8eOvmBwXWAwdB3oWyIKljiZJWlfBQJTOhkgVfS0la5_HrfLxBiRn3TtTeQ6RuKwDZFul4NS_rcTsvpCD6LtdeSJVWhc0Y3tNhABSIPb0IKy03Bate1aE8lqyYWKlrJB4kZsdBFCnPuamMMyXowwRqveZ5sL1lvKmDiCDKHclJWKjmWYxRtXWRo4yG2YhwuNQrRkyt6sMhrVh7w0mNvSPXlMqdUlmvnOIV5Lv-Hj7Nw44x6SAZbq7ed1LZPE5SnxZurbQA9-u9TKwfAF3VEHTr_aKdy9q-vtfNA3YZP-4hAAI54Ue9U4m0dxyb6wbtyStJzmq37iYVSTIB8LKZoEwKgZMhWXJgZRhIwh4y13a5d6Rq4CyqngyDOK5-WnWyZ-znXAK89rrEuty_r2W7X7aX0wH47lK1wMSFopI7HvF7QqqzYOdcMCskt2FBMiV44LmZ2fbZcRV8FqQNQ3cINx6vpk5_rPXIz0sF85jkFDklMMshaYFCxnBo2m00]--></g></svg>
+<?xml version="1.0" encoding="us-ascii" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    contentStyleType="text/css" height="535px" preserveAspectRatio="none"
+    style="width:1715px;height:535px;background:#FFFFFF;" version="1.1" viewBox="0 0 1715 535"
+    width="1715px" zoomAndPan="magnify">
+    <defs />
+    <g>
+        <rect fill="#FFFFFF" height="6" style="stroke:#181818;stroke-width:1.0;" width="10" x="34"
+            y="65.2188" />
+        <rect fill="#FFFFFF" height="74.7031" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="148" y="71.2188" />
+        <rect fill="#FFFFFF" height="14" style="stroke:#181818;stroke-width:1.0;" width="10" x="533"
+            y="117.9219" />
+        <rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="533" y="206.625" />
+        <rect fill="#FFFFFF" height="294.6484" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="1060" y="176.2734" />
+        <rect fill="none" height="168.5938" style="stroke:#000000;stroke-width:1.5;" width="755"
+            x="452" y="295.3281" />
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="39" x2="39"
+            y1="55.2188" y2="480.9219" />
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="153" x2="153"
+            y1="55.2188" y2="480.9219" />
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="538" x2="538"
+            y1="55.2188" y2="480.9219" />
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="1065" x2="1065"
+            y1="55.2188" y2="480.9219" />
+        <rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="68" x="5" y="22.6094" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="54" x="12" y="44.1426">Sberflow</text>
+        <rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="68" x="5" y="479.9219" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="54" x="12" y="501.4551">Sberflow</text>
+        <rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="140" x="83" y="22.6094" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="126" x="90" y="44.1426">RequestQueue_Job</text>
+        <rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="140" x="83" y="479.9219" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="126" x="90" y="501.4551">RequestQueue_Job</text>
+        <rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="152" x="462" y="22.6094" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="138" x="469" y="44.1426">&#1041;&#1080;&#1073;&#1083;&#1080;&#1086;&#1090;&#1077;&#1082;&#1072;
+            &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1081;</text>
+        <rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="152" x="462" y="479.9219" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="138" x="469" y="501.4551">&#1041;&#1080;&#1073;&#1083;&#1080;&#1086;&#1090;&#1077;&#1082;&#1072;
+            &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1081;</text>
+        <rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="208" x="961" y="5" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="194" x="968" y="26.5332">GIGACHAT_REQUEST_FLOW</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="64" x="1033" y="44.1426">HANDLER</text>
+        <rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5"
+            style="stroke:#181818;stroke-width:0.5;" width="208" x="961" y="479.9219" />
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="194" x="968" y="501.4551">GIGACHAT_REQUEST_FLOW</text>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+            textLength="64" x="1033" y="519.0645">HANDLER</text>
+        <rect fill="#FFFFFF" height="6" style="stroke:#181818;stroke-width:1.0;" width="10" x="34"
+            y="65.2188" />
+        <rect fill="#FFFFFF" height="74.7031" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="148" y="71.2188" />
+        <rect fill="#FFFFFF" height="14" style="stroke:#181818;stroke-width:1.0;" width="10" x="533"
+            y="117.9219" />
+        <rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="533" y="206.625" />
+        <rect fill="#FFFFFF" height="294.6484" style="stroke:#181818;stroke-width:1.0;" width="10"
+            x="1060" y="176.2734" />
+        <polygon fill="#181818" points="136,67.2188,146,71.2188,136,75.2188,140,71.2188"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="39" x2="142" y1="71.2188" y2="71.2188" />
+        <polygon fill="#181818" points="521,113.9219,531,117.9219,521,121.9219,525,117.9219"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="158" x2="527" y1="117.9219" y2="117.9219" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="125" x="165" y="96.7139">&#1057;&#1086;&#1093;&#1088;&#1072;&#1085;&#1077;&#1085;&#1080;&#1077;
+            &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1103;</text>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="356" x="165" y="113.0654">(deadline_until, GIGACHAT_REQUEST_FLOW, prioritet,
+            WAIT)</text>
+        <polygon fill="#181818" points="169,127.9219,159,131.9219,169,135.9219,165,131.9219"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="163" x2="537" y1="131.9219" y2="131.9219" />
+        <polygon fill="#181818" points="50,141.9219,40,145.9219,50,149.9219,46,145.9219"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="44" x2="152"
+            y1="145.9219" y2="145.9219" />
+        <polygon fill="#181818" points="1048,172.2734,1058,176.2734,1048,180.2734,1052,176.2734"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="538" x2="1054" y1="176.2734"
+            y2="176.2734" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="49" x="545" y="171.417">&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1077;</text>
+        <polygon fill="#181818" points="554,202.625,544,206.625,554,210.625,550,206.625"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="548" x2="1059" y1="206.625" y2="206.625" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="498" x="560" y="201.7686">&#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086;
+            &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1081; &#1089; code=GIGACHAT_REQUEST_FLOW
+            &#1048; status=PROCESSING</text>
+        <polygon fill="#181818" points="1048,232.9766,1058,236.9766,1048,240.9766,1052,236.9766"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="538" x2="1054"
+            y1="236.9766" y2="236.9766" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="137" x="545" y="232.1201">COUNT_PROCESSING</text>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="1070" x2="1112" y1="267.3281"
+            y2="267.3281" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="1112" x2="1112" y1="267.3281"
+            y2="280.3281" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="1071" x2="1112" y1="280.3281"
+            y2="280.3281" />
+        <polygon fill="#181818" points="1081,276.3281,1071,280.3281,1081,284.3281,1077,280.3281"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="631" x="1077" y="262.4717">&#1055;&#1086;&#1076;&#1089;&#1095;&#1077;&#1090;
+            ${oscm.event-queue.event-code.gigachat-request.flow.concurrent-streams} -
+            COUNT_PROCESSING</text>
+        <path
+            d="M452,295.3281 L513,295.3281 L513,303.6797 L503,313.6797 L452,313.6797 L452,295.3281 "
+            fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;" />
+        <rect fill="none" height="168.5938" style="stroke:#000000;stroke-width:1.5;" width="755"
+            x="452" y="295.3281" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold"
+            lengthAdjust="spacing" textLength="16" x="467" y="309.8232">alt</text>
+        <text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold"
+            lengthAdjust="spacing" textLength="14" x="528" y="308.7471">[0]</text>
+        <polygon fill="#181818" points="549,332.0313,539,336.0313,549,340.0313,545,336.0313"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="543" x2="1059" y1="336.0313"
+            y2="336.0313" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="427" x="555" y="331.1748">&#1086;&#1096;&#1080;&#1073;&#1082;&#1072;
+            &#1080;&#1089;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1103; (FAILED -
+            &#1091;&#1093;&#1086;&#1076;&#1080;&#1090; &#1074;
+            &#1088;&#1077;&#1090;&#1088;&#1072;&#1081; &#1095;&#1077;&#1088;&#1077;&#1079;
+            &#1085;&#1077;&#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1077;
+            &#1074;&#1088;&#1077;&#1084;&#1103;)</text>
+        <line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="452" x2="1207"
+            y1="345.0313" y2="345.0313" />
+        <text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold"
+            lengthAdjust="spacing" textLength="60" x="457" y="356.4502">[&#1073;&#1086;&#1083;&#1100;&#1096;&#1077;
+            0]</text>
+        <polygon fill="#181818" points="549,378.2188,539,382.2188,549,386.2188,545,382.2188"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="543" x2="1059" y1="382.2188"
+            y2="382.2188" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="222" x="555" y="377.3623">&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1077;
+            &#1074; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1077; (PROCESSING)</text>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="1070" x2="1112" y1="412.5703"
+            y2="412.5703" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="1112" x2="1112" y1="412.5703"
+            y2="425.5703" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="1071" x2="1112" y1="425.5703"
+            y2="425.5703" />
+        <polygon fill="#181818" points="1081,421.5703,1071,425.5703,1081,429.5703,1077,425.5703"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="118" x="1077" y="407.7139">&#1076;&#1072;&#1083;&#1100;&#1085;&#1077;&#1081;&#1096;&#1072;&#1103;
+            &#1083;&#1086;&#1075;&#1080;&#1082;&#1072;</text>
+        <polygon fill="#181818" points="549,451.9219,539,455.9219,549,459.9219,545,455.9219"
+            style="stroke:#181818;stroke-width:1.0;" />
+        <line style="stroke:#181818;stroke-width:1.0;" x1="543" x2="1059" y1="455.9219"
+            y2="455.9219" />
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+            textLength="213" x="555" y="451.0654">&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1077;
+            &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1085;&#1086; (COMPLETED)</text><!--SRC=[bLFTQXf15BwVfpY4NYYez3gGWkZ6MAmcQiXDO1dNQRAmsJMpOqeeXMe9BRGWlUjTwHkeZJInpVOLPjwePxOQTrpRj7knx9oTxtm_SwP7kN0TjqTz0QqEuy-zu0Nf9OfDTjvdeJZeipwpdmOTuoUxOBwmFRV3ARy46iAM_2Xlv4H-ntUaXd8cvt8CQY0ZEL7liN0ZRxUC5gVKxtgCn-1AjL8ixHNRTjCwEBHQRNktrZWwzlUAzNBDQcuHGXtXNb31LbAN7v1_afRQPMd0VIMrcwnNT4_JuJR8B-ZhIhsMOtc7xkxGqCpmfqR7VWQ9kvxhCxjpcOEDhdBGusx0NS543ewArNPsfSpW9AQ21soQq0sE47yVHGANwfbYNPxJjdcQiyIXBBQGvTPDySqHYyEXtigP6c27gOpMnWENu0HTjhCnDv2V81HKzCET_MQZPBLQrNhb7wCpN9GQX_MsdUZnvnGJVbPu-Hb5NwC7xMG8Zru6eNDMY97vSntZubjRAPou9zGvfIBFV-TSqFaNdC1t-fphNQ7WZ9w5ho2V5aQe9-0n0Np-bcoatiLNJryu37WWVyPHBwPKZI2pMwpMh39Ig3VgIgl7yX3a572SqKCyr1Y_DeG5-GrYy3o-o16M8XnrEOt__L2ZB13cXGoG4ddK1wIVFIpJ71vD7gyrzIGcccCritAFB6iT4qTmZIXaZcNU8lyONQBbI7x5vZg7_rLZIj5NF89CgV5ilsQrhNAMCBzBaeEod7Zo2m00]-->
+    </g>
+</svg>

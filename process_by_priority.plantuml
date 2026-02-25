@@ -29,8 +29,8 @@ group transaction
         FROM events
         WHERE status <> 'IN_PROCESS' 
         AND priority IS NOT NULL 
-        AND (deadline_by IS NULL OR deadline_by <= now())
-        AND (max_retry IS NULL OR retry < max_retry)
+        AND (deadline_until IS NULL OR deadline_until >= now())
+        AND (max_attempts IS NULL OR attempt_count < max_attempts)
         ORDER BY priority, create_date
         LIMIT :batch_size;
     end note
@@ -57,12 +57,12 @@ loop для каждого события
             db --> event_service
             deactivate db
         else FAILED
-            event_service -> db : увеличение event.retry на 1, обновление статуса на FAILED
+            event_service -> db : увеличение event.attempt_count на 1, обновление статуса на FAILED
             activate db
             db --> event_service
             deactivate db
         else IN_PROCESS
-            event_service -> db : обновление статуса на IN_PROCESS, установка locked_by из средозависимых
+            event_service -> db : обновление статуса на PROCESSING, установка locked_until из средозависимых
             activate db
             db --> event_service
             deactivate db

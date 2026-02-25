@@ -30,7 +30,7 @@ group transaction
     note left
         SELECT *
         FROM events
-        WHERE retry < max_retry
+        WHERE attempt_count < max_attempts
         ORDER BY create_date
         LIMIT :batch_size;
     end note
@@ -86,7 +86,7 @@ deactivate shedlock
 cleanup_scheduler -> db : удаление старых записей
 note right
     DELETE FROM events
-    WHERE retry >= max_retry and create_date <= :cleanup_before_date
+    WHERE attempt_count >= max_attempts and create_date <= :cleanup_before_date
 end note
 activate db
 db --> cleanup_scheduler

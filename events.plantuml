@@ -7,9 +7,8 @@ abstract class Event {
     name: VARCHAR(100) <<NOT NULL>>
     payload: TEXT
     group_id: VARCHAR(100)
-    retry: SMALLINT <<NOT NULL>>
-    deadline_by: TIMESTAMP WITH TIME ZONE
-    locked_by: TIMESTAMP WITH TIME ZONE
+    attempt_count: SMALLINT <<NOT NULL>>
+    locked_until: TIMESTAMP WITH TIME ZONE
     prioritet: SMALLINT
     status: VARCHAR(50)>
 }
@@ -20,7 +19,7 @@ class MaxAttemptsEvent {
 
 class DeadlineEvent {
     maxAttempts: SMALLINT
-    deadline_by: TIMESTAMP WITH TIME ZONE <<NOT NULL>>
+    deadline_until: TIMESTAMP WITH TIME ZONE <<NOT NULL>>
 }
 
 Event <|-- MaxAttemptsEvent
